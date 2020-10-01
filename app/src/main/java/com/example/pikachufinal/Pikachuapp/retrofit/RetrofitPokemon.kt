@@ -7,7 +7,7 @@ class RetrofitPokemon {
 
     companion object {
 
-        private const val BASE_URL = "https://pokeapi.co/api/v2"
+        private const val BASE_URL = "https://pokeapi.co/api/v2/"
 
         fun retrofitInstance(): ApiInterface {
             val retrofit = Retrofit.Builder()

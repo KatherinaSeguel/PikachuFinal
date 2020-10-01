@@ -10,7 +10,7 @@ import com.example.pikachufinal.R
 import kotlinx.android.synthetic.main.itempoke_list_view.view.*
 import java.text.FieldPosition
 
-class PokeAdapter(val callback: CallabackInterface): RecyclerView.Adapter<PokeAdapter.PokemonViewHolder>() {
+class PokeAdapter(val callback: CallbackInterface): RecyclerView.Adapter<PokeAdapter.PokemonViewHolder>() {
 
     private var pokeinList = emptyList<TodosPoke>()
 
@@ -35,7 +35,7 @@ override fun onBindViewHolder(holder: PokemonViewHolder,position: Int) {
 
     override fun getItemCount() = pokeinList.size
 
-    interface CallabackInterface {
+    interface CallbackInterface {
         fun passTheData(todosPoke: TodosPoke)
     }
 
