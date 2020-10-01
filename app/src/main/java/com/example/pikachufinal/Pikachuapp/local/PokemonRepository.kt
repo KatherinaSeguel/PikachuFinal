@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import com.example.pikachufinal.Pikachuapp.dao.PokemonDao
 import com.example.pikachufinal.Pikachuapp.entities.TodosPoke
 import com.example.pikachufinal.Pikachuapp.remoto.PokemonApiPlug
+import com.example.pikachufinal.Pikachuapp.remoto.Result
 import com.example.pikachufinal.Pikachuapp.retrofit.RetrofitPokemon
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -22,26 +23,36 @@ class PokemonRepository(private val pokemonDao: PokemonDao ) {
     }
 
 fun getDataFromServer() {
-    val call = service.fetchPokemon()
-    call.enqueue(object :  Callback<PokemonApiPlug> {
-        override fun onFailure(call: Call<PokemonApiPlug>, t: Throwable) {
-            Log.e("Repository", t.message.toString())
-        }
+    val call = service.fetchPokemon().apply {
+        enqueue(object :  Callback<PokemonApiPlug> {
+            override fun onFailure(call: Call<PokemonApiPlug>, t: Throwable) {
+                Log.e("Repository", t.message.toString())
+            }
 
-        override fun onResponse(call: Call<PokemonApiPlug>, response: Response<PokemonApiPlug>) {
-           when (response.code()) {
-               in 200..299 -> CoroutineScope(Dispatchers.IO).launch {
-                   response.body()?.let {
-                      //pokemonDao.insertAllPokemon(p)
-                       Log.d("nicols",it.results.toString())
-                   }
-               }
-               in 300..399 -> Log.d("ERROR 300",response.errorBody().toString())
-           }
+            override fun onResponse(
+                call: Call<PokemonApiPlug>,
+                response: Response<PokemonApiPlug>
+            ) {
+                when (response.code()) {
+                    in 200..299 -> CoroutineScope(Dispatchers.IO).launch {
+                        response.body()?.let {
+                            pokemonDao.insertAllPokemon(converter(it.results))
+                            Log.d("nicols", it.results.toString())
+                        }
+                    }
+                    in 300..399 -> Log.d("ERROR 300", response.errorBody().toString())
+                }
+            }
+        })
+    }
+}
+    fun converter(list: List<Result>):List<TodosPoke> {
+        var nombrepokemon: MutableList<TodosPoke> = mutableListOf<TodosPoke>()
+        list.map {
+            nombrepokemon.add(TodosPoke(it.name))
         }
-
-    })
-        }
+        return nombrepokemon
+    }
 
   /*  fun getDataFromServerWithCoroutines() = CoroutineScope(Dispatchers.IO).launch {
         val service = kotlin.runCatching { service.fetchPokemonCorutinas() }
