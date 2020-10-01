@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.pikachufinal.Pikachuapp.dao.PokemonDao
 import com.example.pikachufinal.Pikachuapp.entities.TodosPoke
 
+private const val DATA_BASE_NAME = "pokemones_database"
 @Database(entities = [TodosPoke::class],version = 1, exportSchema = false)
 abstract class PokeDataBase : RoomDatabase() {
 
@@ -24,9 +25,8 @@ abstract class PokeDataBase : RoomDatabase() {
             }
             synchronized(this){
                 val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    PokeDataBase::class.java,
-                    "pokemones_database"
+                    context,
+                    PokeDataBase::class.java, DATA_BASE_NAME
                 ).build()
                 INSTANCE = instance
                 return instance

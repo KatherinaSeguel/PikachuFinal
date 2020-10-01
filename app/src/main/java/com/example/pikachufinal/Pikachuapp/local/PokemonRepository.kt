@@ -32,7 +32,7 @@ fun getDataFromServer() {
            when (response.code()) {
                in 200..299 -> CoroutineScope(Dispatchers.IO).launch {
                    response.body()?.let {
-                      // pokemonDao.insertAllPokemon(it)
+                      //pokemonDao.insertAllPokemon(p)
                        Log.d("nicols",it.results.toString())
                    }
                }
