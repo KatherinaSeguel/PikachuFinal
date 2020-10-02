@@ -27,6 +27,7 @@ class SecondFragment : Fragment() {
         super.onCreate(savedInstanceState)
         arguments.let {
             mId = arguments?.getString("id") ?: ""
+            Log.d("SEGUNDO",mId.toString())
         }
         mViewModel = ViewModelProvider(this).get(PokemonViewModel::class.java)
     }
@@ -47,15 +48,14 @@ class SecondFragment : Fragment() {
         mId.let {
             mViewModel.obtainPokemonByID(mId).observe(viewLifecycleOwner, Observer {
                 Log.d("SECOND", it.pokemon)
-                Glide.with(view.context).load(it.pokemon)
+                Glide.with(view.context).load(it.pokemon).centerCrop().into(imageView2)
                     textView2.text = it.pokemon
             })
         }
 
 
 
-        view.findViewById<Button>(R.id.button_second).setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+     //   view.findViewById<Button>(R.id.button_second).setOnClickListener {
+       //     findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
     }
-}
