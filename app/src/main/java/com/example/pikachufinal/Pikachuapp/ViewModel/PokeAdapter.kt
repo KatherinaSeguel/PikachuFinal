@@ -20,17 +20,16 @@ class PokeAdapter(val callback: CallbackInterface): RecyclerView.Adapter<PokeAda
     }
 
     inner class PokemonViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val itemImg = itemView.tv1
+        var itemImg = itemView.tv1
        /* {
             callback.passTheData(pokeinList[adapterPosition])
         }
         */
-
-
     }
 
 override fun onBindViewHolder(holder: PokemonViewHolder,position: Int) {
-  // Glide.with(holder.context).load(pokeinList[position].pokemon).into(holder.itemImg)
+//   Glide.with(holder.itemView.context).load(pokeinList[position].pokemon)
+    holder.itemImg.text =  pokeinList[position].pokemon
 }
 
     override fun getItemCount() = pokeinList.size
