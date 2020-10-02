@@ -49,7 +49,7 @@ class FirstFragment : Fragment(),PokeAdapter.CallbackInterface {
             adapter.updateAdapter(it)
         })
 
-
+     //   findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
     }
 
 override fun passTheData(todosPoke: TodosPoke){

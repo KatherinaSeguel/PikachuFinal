@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.pikachufinal.Pikachuapp.ViewModel.PokemonViewModel
 import com.example.pikachufinal.R
+import kotlinx.android.synthetic.main.fragment_second.*
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -47,7 +48,7 @@ class SecondFragment : Fragment() {
             mViewModel.obtainPokemonByID(mId).observe(viewLifecycleOwner, Observer {
                 Log.d("SECOND", it.pokemon)
                 Glide.with(view.context).load(it.pokemon)
-
+                    textView2.text = it.pokemon
             })
         }
 
