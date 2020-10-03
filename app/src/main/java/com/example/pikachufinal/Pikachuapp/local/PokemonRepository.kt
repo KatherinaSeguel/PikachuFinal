@@ -14,7 +14,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PokemonRepository(private val pokemonDao: PokemonDao ) {
+class PokemonRepository(private val pokemonDao: PokemonDao) {
     private val service = RetrofitPokemon.retrofitInstance()
   val mLiveData = pokemonDao.getAllPokemonFromBD()
 
