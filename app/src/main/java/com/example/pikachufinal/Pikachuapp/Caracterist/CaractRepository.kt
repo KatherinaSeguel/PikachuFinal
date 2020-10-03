@@ -19,8 +19,9 @@ class CaractRepository(private val characteristicDao: CharacteristicDao) {
 
     }
 
-    fun obtainDataInternet() {
-        val call = service.fetchCaracter().apply {
+    fun obtainDataInternet(name: String) {
+
+        val call = service.fetchCaracter(name).apply {
             enqueue(object : retrofit2.Callback<characteristicApi> {
 
                 override fun onFailure(call: Call<characteristicApi>, t: Throwable) {
@@ -36,7 +37,7 @@ class CaractRepository(private val characteristicDao: CharacteristicDao) {
                         in 200..299 -> CoroutineScope(Dispatchers.IO).launch {
                             response.body()?.let {
                                 characteristicDao.insertAllCharac(converter(it.results))
-                                Log.d("nicols", it.results.toString())
+                                Log.d("nicolsFINAL", it.results.toString())
                             }
                         }
                         in 300..399 -> Log.d("ERROR 300", response.errorBody().toString())

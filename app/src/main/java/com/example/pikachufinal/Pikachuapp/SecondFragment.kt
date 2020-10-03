@@ -11,6 +11,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.pikachufinal.Pikachuapp.Caracterist.CaractRepository
+import com.example.pikachufinal.Pikachuapp.Caracterist.CaractViewModel
 import com.example.pikachufinal.Pikachuapp.ViewModel.PokemonViewModel
 import com.example.pikachufinal.R
 import kotlinx.android.synthetic.main.fragment_second.*
@@ -20,7 +22,7 @@ import kotlinx.android.synthetic.main.fragment_second.*
  */
 class SecondFragment : Fragment() {
 
-    lateinit var mViewModel: PokemonViewModel
+    lateinit var mViewModel: CaractViewModel
     var mId: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +31,7 @@ class SecondFragment : Fragment() {
             mId = arguments?.getString("id") ?: ""
             Log.d("SEGUNDO",mId.toString())
         }
-        mViewModel = ViewModelProvider(this).get(PokemonViewModel::class.java)
+        mViewModel = ViewModelProvider(this).get(CaractViewModel::class.java)
     }
 
 
@@ -46,11 +48,7 @@ class SecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mId.let {
-            mViewModel.obtainPokemonByID(mId).observe(viewLifecycleOwner, Observer {
-                Log.d("SECOND", it.pokemon)
-                Glide.with(view.context).load(it.pokemon).centerCrop().into(imageView2)
-                    textView2.text = it.pokemon
-            })
+          mViewModel.obtainFromInternet(it)
         }
 
 

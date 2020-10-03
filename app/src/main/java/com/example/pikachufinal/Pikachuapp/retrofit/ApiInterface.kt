@@ -6,6 +6,7 @@ import com.example.pikachufinal.Pikachuapp.remoto.Result
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface ApiInterface {
 
@@ -15,8 +16,8 @@ interface ApiInterface {
     @GET("pokemon")
     suspend fun fetchPokemonCorutinas(): Response<PokemonApiPlug>
 
-@GET("characteristic")
-fun fetchCaracter(): Call<characteristicApi>
+@GET("characteristic/{id}")
+fun fetchCaracter(@Path("id") name: String): Call<characteristicApi>
 
     @GET("characteristic")
     suspend fun fetchCaractCorutinas(): Response<characteristicApi>
