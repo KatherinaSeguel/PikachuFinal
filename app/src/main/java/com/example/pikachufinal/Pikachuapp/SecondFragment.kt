@@ -57,6 +57,7 @@ class SecondFragment : Fragment() {
 
             }
 
+        Glide.with(this).load("https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/5b0fcfa25bafe83df2c203b3/pokemon0_0.jpg").into(imageView3)
 
             view.findViewById<Button>(R.id.button_second).setOnClickListener {
                 findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
