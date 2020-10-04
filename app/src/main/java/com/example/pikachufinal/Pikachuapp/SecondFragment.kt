@@ -51,6 +51,7 @@ class SecondFragment : Fragment() {
             mViewModel2.obtainCaractByID(mId2)
                 Glide.with(view.context)
                 textView2.text = it.toString()
+            textView3.text = it.capitalize()
             }
 
 
