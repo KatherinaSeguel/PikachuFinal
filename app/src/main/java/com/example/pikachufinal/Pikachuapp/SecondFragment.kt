@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.pikachufinal.Pikachuapp.Caracterist.CaractRepository
@@ -22,23 +23,22 @@ import kotlinx.android.synthetic.main.fragment_second.*
  */
 class SecondFragment : Fragment() {
 
-    lateinit var mViewModel: CaractViewModel
-    var mId: String = ""
+    lateinit var mViewModel2: CaractViewModel
+    var mId2: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments.let {
-            mId = arguments?.getString("id") ?: ""
-            Log.d("SEGUNDO",mId.toString())
+            mId2 = arguments?.getString("id") ?: ""
+            Log.d("SEGUNDO", mId2.toString())
         }
-        mViewModel = ViewModelProvider(this).get(CaractViewModel::class.java)
+        mViewModel2 = ViewModelProvider(this).get(CaractViewModel::class.java)
     }
 
 
-
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_second, container, false)
@@ -47,13 +47,25 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mId.let {
-          mViewModel.obtainFromInternet(it)
-        }
+        mId2.let {
+            mViewModel2.obtainCaractByID(mId2)
+                Glide.with(view.context)
+                textView2.text = it.toString()
+            }
 
 
+            view.findViewById<Button>(R.id.button_second).setOnClickListener {
+                findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
 
-     //   view.findViewById<Button>(R.id.button_second).setOnClickListener {
-       //     findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+            }
         }
     }
+
+
+
+
+
+  //      view.findViewById<Button>(R.id.button_second).setOnClickListener {
+//    findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+
+

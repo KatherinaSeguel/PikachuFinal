@@ -8,7 +8,6 @@ import com.bumptech.glide.Glide
 import com.example.pikachufinal.Pikachuapp.entities.TodosPoke
 import com.example.pikachufinal.R
 import kotlinx.android.synthetic.main.itempoke_list_view.view.*
-import java.text.FieldPosition
 
 class PokeAdapter(val callback: CallbackInterface): RecyclerView.Adapter<PokeAdapter.PokemonViewHolder>() {
 
@@ -22,7 +21,7 @@ class PokeAdapter(val callback: CallbackInterface): RecyclerView.Adapter<PokeAda
     inner class PokemonViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var itemImg = itemView.tv1
 
-        val algo = itemView.setOnClickListener {
+          val algo = itemView.setOnClickListener {
             callback.passTheData(pokeinList[adapterPosition])
         }
        /* {
@@ -34,6 +33,7 @@ class PokeAdapter(val callback: CallbackInterface): RecyclerView.Adapter<PokeAda
 override fun onBindViewHolder(holder: PokemonViewHolder,position: Int) {
  Glide.with(holder.itemView.context).load(pokeinList[position].pokemon)
     holder.itemImg.text =  pokeinList[position].pokemon
+
 }
 
     override fun getItemCount() = pokeinList.size

@@ -23,6 +23,7 @@ class FirstFragment : Fragment(),PokeAdapter.CallbackInterface {
     lateinit var mViewModel: PokemonViewModel
     lateinit var adapter: PokeAdapter
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mViewModel= ViewModelProvider(this).get(PokemonViewModel::class.java)
