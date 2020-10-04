@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.pikachufinal.Pikachuapp.ViewModel.PokeAdapter
 import com.example.pikachufinal.Pikachuapp.ViewModel.PokemonViewModel
 import com.example.pikachufinal.Pikachuapp.entities.TodosPoke
@@ -49,6 +50,7 @@ class FirstFragment : Fragment(),PokeAdapter.CallbackInterface {
             Log.d("VIEW",it.toString())
             adapter.updateAdapter(it)
         })
+        Glide.with(this).load("https://tecnogeek.net/wp-content/uploads/2016/07/Pokemon-GO.webp").into(imageView2)
 
      //   findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
     }

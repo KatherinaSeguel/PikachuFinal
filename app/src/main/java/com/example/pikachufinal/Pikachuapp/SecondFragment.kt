@@ -52,6 +52,9 @@ class SecondFragment : Fragment() {
                 Glide.with(view.context)
                 textView2.text = it.toString()
             textView3.text = it.capitalize()
+
+
+
             }
 
 
