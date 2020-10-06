@@ -48,10 +48,15 @@ class SecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mId2.let {
-            mViewModel2.obtainCaractByID(mId2)
+            mViewModel2.obtainFromInternet(it)
+            mViewModel2.obtainCaractByID(mId2).observe(viewLifecycleOwner, Observer {
+
+            })
                 Glide.with(view.context)
                 textView2.text = it.toString()
-            textView3.text = it.capitalize()
+
+            //    Glide.with(view.context).load(it).into(textView3)
+            //        textView3.text = it.ca
 
 
 

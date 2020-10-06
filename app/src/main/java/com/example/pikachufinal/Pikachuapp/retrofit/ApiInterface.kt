@@ -16,10 +16,10 @@ interface ApiInterface {
     @GET("pokemon")
     suspend fun fetchPokemonCorutinas(): Response<PokemonApiPlug>
 
-@GET("characteristic/{id}")
+@GET("pokemon/{id}")
 fun fetchCaracter(@Path("id") name: String): Call<characteristicApi>
 
-    @GET("characteristic")
+    @GET("pokemon/nombre")
     suspend fun fetchCaractCorutinas(): Response<characteristicApi>
 
 }

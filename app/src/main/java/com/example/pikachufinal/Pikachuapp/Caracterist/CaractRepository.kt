@@ -36,8 +36,9 @@ class CaractRepository(private val characteristicDao: CharacteristicDao) {
                     when (response.code()) {
                         in 200..299 -> CoroutineScope(Dispatchers.IO).launch {
                             response.body()?.let {
-                                characteristicDao.insertAllCharac(converter(it.results))
                                 Log.d("nicolsFINAL", it.results.toString())
+                                characteristicDao.insertAllCharac(converter(it.results))
+                             //   Log.d("nicolsFINAL", it.results.toString())
                             }
                         }
                         in 300..399 -> Log.d("ERROR 300", response.errorBody().toString())
