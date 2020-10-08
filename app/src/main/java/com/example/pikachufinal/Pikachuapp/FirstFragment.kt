@@ -58,7 +58,7 @@ class FirstFragment : Fragment(),PokeAdapter.CallbackInterface {
 override fun passTheData(todosPoke: TodosPoke){
     val bundle = Bundle()
     bundle.putString("id",todosPoke.pokemon)
-    Log.d("Nicolsajajaja",todosPoke.pokemon)
+   // Log.d("Nicolsajajaja",todosPoke.pokemon)
     findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment,bundle)
 }
 

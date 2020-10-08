@@ -3,10 +3,12 @@ package com.example.pikachufinal.Pikachuapp.ViewModel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.viewModelScope
 import com.example.pikachufinal.Pikachuapp.Caracterist.CharacteristicDao
 import com.example.pikachufinal.Pikachuapp.entities.TodosPoke
 import com.example.pikachufinal.Pikachuapp.local.PokemonRepository
 import com.example.pikachufinal.Pikachuapp.remoto.PokeDataBase
+import kotlinx.coroutines.launch
 
 class PokemonViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -26,6 +28,10 @@ class PokemonViewModel(application: Application) : AndroidViewModel(application)
 
     fun obtainPokemonByID(id: String): LiveData<TodosPoke> {
         return repository.obtainPokemoninByID(id)
+    }
+
+    fun updatePokemon(todosPoke: TodosPoke)= viewModelScope.launch {
+        repository.updatePokemon(todosPoke)
     }
 }
 

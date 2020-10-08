@@ -11,15 +11,11 @@ import retrofit2.http.Path
 interface ApiInterface {
 
     @GET("pokemon")
-    fun fetchPokemon(): Call<PokemonApiPlug>
+    fun fetchPokemon(): Call<ResponseApi>
 
-    @GET("pokemon")
-    suspend fun fetchPokemonCorutinas(): Response<PokemonApiPlug>
+@GET("pokemon/{name}")
+fun fetchCaracter(@Path("name") name: String): Call<ResponseApi>
 
-@GET("pokemon/{id}")
-fun fetchCaracter(@Path("id") name: String): Call<characteristicApi>
 
-    @GET("pokemon/nombre")
-    suspend fun fetchCaractCorutinas(): Response<characteristicApi>
 
 }
