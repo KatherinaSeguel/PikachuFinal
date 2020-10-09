@@ -33,7 +33,8 @@ class PokeAdapter(val callback: CallbackInterface): RecyclerView.Adapter<PokeAda
 
 override fun onBindViewHolder(holder: PokemonViewHolder,position: Int) {
  Glide.with(holder.itemView.context).load(pokeinList[position].pokemon).into(holder.itemimage)
-    holder.itemImg.text =  pokeinList[position].pokemon.toString()
+    holder.itemImg.text =  pokeinList[position].name.toString()
+
 
 
 }
