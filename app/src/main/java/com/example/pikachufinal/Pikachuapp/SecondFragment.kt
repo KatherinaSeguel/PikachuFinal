@@ -50,13 +50,14 @@ class SecondFragment : Fragment() {
 
             mViewModel2.obtainPokemonByID(mId2).observe(viewLifecycleOwner, Observer {
 
-                context?.let {  it1-> Glide.with(it1).load(it.pokemon).into(imageView3) }
+                context?.let {  it1-> Glide.with(it1).load(it.image).into(imageView3) }
                 tv_id.text = "#" + it.pokemon
+                text_name.text = it.name
                tv_types.text = "Tipo:" + it.types
                 tvtypes2.text = "Habilidades:" + it.abilities
             })
                 Glide.with(view.context)
-                textView2.text = it.toString()
+                text_name.text = it.toString()
 
             //    Glide.with(view.context).load(it).into(textView3)
             //        textView3.text = it.ca
