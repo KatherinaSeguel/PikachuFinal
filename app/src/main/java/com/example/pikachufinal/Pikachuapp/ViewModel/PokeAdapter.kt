@@ -26,18 +26,12 @@ class PokeAdapter(val callback: CallbackInterface): RecyclerView.Adapter<PokeAda
           val algo = itemView.setOnClickListener {
             callback.passTheData(pokeinList[adapterPosition])
         }
-       /* {
-            callback.passTheData(pokeinList[adapterPosition])
-        }
-        */
-    }
+          }
 
 override fun onBindViewHolder(holder: PokemonViewHolder,position: Int) {
- Glide.with(holder.itemView.context).load(pokeinList[position].pokemon).into(holder.itemimage)
+ Glide.with(holder.itemView.context).load(pokeinList[position].image).into(holder.itemimage)
     holder.itemImg.text =  pokeinList[position].name.toString()
     holder.favorito.rating = pokeinList[position].apretar.toFloat()
-
-
 
 }
 

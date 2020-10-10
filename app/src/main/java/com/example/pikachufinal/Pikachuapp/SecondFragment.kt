@@ -67,9 +67,9 @@ class SecondFragment : Fragment() {
 
             }
 
-         // ratingfavorito.setOnRatingBarChangeListener { x,stars, iss ->
-           //   pokemon.apretar= stars.toDouble()
-            //  mViewModel2.updatePokemon(pokemon)
+          //ratingfavorito.setOnRatingBarChangeListener { x,stars, iss ->
+            // pokemon.apretar= stars.toDouble()
+             // mViewModel2.updatePokemon(pokemon)
           //}
 
         //Glide.with(this).load("https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/5b0fcfa25bafe83df2c203b3/pokemon0_0.jpg").into(imageView3)
