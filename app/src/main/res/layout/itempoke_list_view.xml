@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/txtarriba"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:contentDescription="@string/txtarriba"
     tools:context="@string/txtarriba"
@@ -12,9 +12,9 @@
 
     <TextView
         android:id="@+id/tv1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="24dp"
+        android:layout_width="333dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
         android:textAlignment="center"
         android:textColor="#070707"
         android:textSize="18sp"
@@ -25,20 +25,24 @@
 
     <RatingBar
         android:id="@+id/ratingfavorito"
-        android:layout_width="176dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isIndicator="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv1" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="121dp"
-        android:layout_height="88dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/ratingfavorito"
-        app:layout_constraintHorizontal_bias="0.408"
+        android:layout_width="50dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/ratingfavorito"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv1"
         tools:src="@tools:sample/avatars" />
