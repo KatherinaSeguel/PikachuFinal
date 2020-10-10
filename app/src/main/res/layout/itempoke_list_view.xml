@@ -25,10 +25,12 @@
 
     <RatingBar
         android:id="@+id/ratingfavorito"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="240dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="40dp"
         android:isIndicator="true"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.397"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -36,14 +38,24 @@
         android:id="@+id/imageView"
         android:layout_width="50dp"
         android:layout_height="71dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="76dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="10dp"
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toTopOf="@+id/ratingfavorito"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv1"
         tools:src="@tools:sample/avatars" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="138dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="52dp"
+        app:layout_constraintBottom_toTopOf="@+id/ratingfavorito"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        tools:text="@string/checkBox" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
