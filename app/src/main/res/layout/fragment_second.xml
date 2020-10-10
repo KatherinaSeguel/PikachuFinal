@@ -13,36 +13,25 @@
         android:text="@string/previous"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvtypes2" />
+        app:layout_constraintTop_toBottomOf="@+id/tvtypes2"
+        app:layout_constraintVertical_bias="0.199" />
 
     <TextView
         android:id="@+id/text_name"
-        android:layout_width="222dp"
-        android:layout_height="66dp"
+        android:layout_width="305dp"
+        android:layout_height="64dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
-        android:textAlignment="center"
+        android:textAlignment="textStart"
         android:textColor="#E91E63"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="230dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textColor="#9C27B0"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_name" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -56,31 +45,42 @@
 
     <TextView
         android:id="@+id/tv_id"
-        android:layout_width="137dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="317dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="36dp"
         android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#03A9F4"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.447"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/text_name" />
 
     <TextView
         android:id="@+id/tv_types"
-        android:layout_width="146dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="298dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="28dp"
         android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#03A9F4"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_id" />
 
     <TextView
         android:id="@+id/tvtypes2"
-        android:layout_width="112dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="290dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="4dp"
         android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#03A9F4"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
