@@ -56,6 +56,7 @@ class SecondFragment : Fragment() {
                 text_name.text = it.name
                tv_types.text = "Tipo   :" + it.types
                 tvtypes2.text = "Habilidades   :" + it.abilities
+               // checkBox.isChecked = it.complete
             })
                 Glide.with(view.context)
                 text_name.text = it.toString()

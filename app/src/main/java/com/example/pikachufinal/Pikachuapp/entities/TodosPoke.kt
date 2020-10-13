@@ -10,4 +10,5 @@ data class TodosPoke (@PrimaryKey val pokemon: String,
                       val abilities: String,
                       val types: String,
                       var apretar: Double=0.0
+
 )
